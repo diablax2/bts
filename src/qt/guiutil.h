@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_QT_GUIUTIL_H
-#define HTS_QT_GUIUTIL_H
+#ifndef BTS_QT_GUIUTIL_H
+#define BTS_QT_GUIUTIL_H
 
 #include "amount.h"
 
@@ -29,7 +29,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the HTS Qt UI.
+/** Utility functions used by the BTS Qt UI.
  */
 namespace GUIUtil
 {
@@ -44,10 +44,10 @@ namespace GUIUtil
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "HTS:" URI into recipient object, return true on successful parsing
-    bool parseHTSURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseHTSURI(QString uri, SendCoinsRecipient *out);
-    QString formatHTSURI(const SendCoinsRecipient &info);
+    // Parse "BTS:" URI into recipient object, return true on successful parsing
+    bool parseBTSURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseBTSURI(QString uri, SendCoinsRecipient *out);
+    QString formatBTSURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, const CAmount& amount);
@@ -115,7 +115,7 @@ namespace GUIUtil
     void openDebugLogfile();
 
     // Open the config file
-    void openHTSConf();
+    void openBTSConf();
 
     // Replace invalid default fonts with known good ones
     void SubstituteFonts(const QString& language);
@@ -219,4 +219,4 @@ namespace GUIUtil
 
 } // namespace GUIUtil
 
-#endif // HTS_QT_GUIUTIL_H
+#endif // BTS_QT_GUIUTIL_H

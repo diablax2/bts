@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_QT_PEERTABLEMODEL_H
-#define HTS_QT_PEERTABLEMODEL_H
+#ifndef BTS_QT_PEERTABLEMODEL_H
+#define BTS_QT_PEERTABLEMODEL_H
 
 #include "main.h" // For CNodeStateStats
 #include "net.h"
@@ -78,4 +78,4 @@ private:
     QTimer *timer;
 };
 
-#endif // HTS_QT_PEERTABLEMODEL_H
+#endif // BTS_QT_PEERTABLEMODEL_H

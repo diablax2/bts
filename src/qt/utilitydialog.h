@@ -2,13 +2,13 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_QT_UTILITYDIALOG_H
-#define HTS_QT_UTILITYDIALOG_H
+#ifndef BTS_QT_UTILITYDIALOG_H
+#define BTS_QT_UTILITYDIALOG_H
 
 #include <QDialog>
 #include <QObject>
 
-class HTSGUI;
+class BTSGUI;
 class ClientModel;
 
 namespace Ui {
@@ -43,10 +43,10 @@ class ShutdownWindow : public QWidget
 
 public:
     ShutdownWindow(QWidget *parent=0, Qt::WindowFlags f=0);
-    static void showShutdownWindow(HTSGUI *window);
+    static void showShutdownWindow(BTSGUI *window);
 
 protected:
     void closeEvent(QCloseEvent *event);
 };
 
-#endif // HTS_QT_UTILITYDIALOG_H
+#endif // BTS_QT_UTILITYDIALOG_H

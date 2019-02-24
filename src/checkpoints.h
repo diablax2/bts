@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_CHECKPOINTS_H
-#define HTS_CHECKPOINTS_H
+#ifndef BTS_CHECKPOINTS_H
+#define BTS_CHECKPOINTS_H
 
 #include "uint256.h"
 
@@ -29,4 +29,4 @@ double GuessVerificationProgress(const CCheckpointData& data, CBlockIndex* pinde
 
 } //namespace Checkpoints
 
-#endif // HTS_CHECKPOINTS_H
+#endif // BTS_CHECKPOINTS_H

@@ -11,8 +11,8 @@
  * - E-mail usually won't line-break if there's no punctuation to break at.
  * - Double-clicking selects the whole string as one word if it's all alphanumeric.
  */
-#ifndef HTS_BASE58_H
-#define HTS_BASE58_H
+#ifndef BTS_BASE58_H
+#define BTS_BASE58_H
 
 #include "chainparams.h"
 #include "key.h"
@@ -95,13 +95,13 @@ public:
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
 
-/** base58-encoded HTS addresses.
+/** base58-encoded BTS addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CHTSAddress : public CBase58Data {
+class CBTSAddress : public CBase58Data {
 public:
     bool Set(const CKeyID &id);
     bool Set(const CScriptID &id);
@@ -109,10 +109,10 @@ public:
     bool IsValid() const;
     bool IsValid(const CChainParams &params) const;
 
-    CHTSAddress() {}
-    CHTSAddress(const CTxDestination &dest) { Set(dest); }
-    CHTSAddress(const std::string& strAddress) { SetString(strAddress); }
-    CHTSAddress(const char* pszAddress) { SetString(pszAddress); }
+    CBTSAddress() {}
+    CBTSAddress(const CTxDestination &dest) { Set(dest); }
+    CBTSAddress(const std::string& strAddress) { SetString(strAddress); }
+    CBTSAddress(const char* pszAddress) { SetString(pszAddress); }
 
     CTxDestination Get() const;
     bool GetKeyID(CKeyID &keyID) const;
@@ -123,7 +123,7 @@ public:
 /**
  * A base58-encoded secret key
  */
-class CHTSSecret : public CBase58Data
+class CBTSSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret);
@@ -132,11 +132,11 @@ public:
     bool SetString(const char* pszSecret);
     bool SetString(const std::string& strSecret);
 
-    CHTSSecret(const CKey& vchSecret) { SetKey(vchSecret); }
-    CHTSSecret() {}
+    CBTSSecret(const CKey& vchSecret) { SetKey(vchSecret); }
+    CBTSSecret() {}
 };
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CHTSExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CBTSExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -154,18 +154,18 @@ public:
         return ret;
     }
 
-    CHTSExtKeyBase(const K &key) {
+    CBTSExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CHTSExtKeyBase(const std::string& strBase58c) {
+    CBTSExtKeyBase(const std::string& strBase58c) {
         SetString(strBase58c.c_str(), Params().Base58Prefix(Type).size());
     }
 
-    CHTSExtKeyBase() {}
+    CBTSExtKeyBase() {}
 };
 
-typedef CHTSExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CHTSExtKey;
-typedef CHTSExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CHTSExtPubKey;
+typedef CBTSExtKeyBase<CExtKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_SECRET_KEY> CBTSExtKey;
+typedef CBTSExtKeyBase<CExtPubKey, BIP32_EXTKEY_SIZE, CChainParams::EXT_PUBLIC_KEY> CBTSExtPubKey;
 
-#endif // HTS_BASE58_H
+#endif // BTS_BASE58_H

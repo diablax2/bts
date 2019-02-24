@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_QT_INTRO_H
-#define HTS_QT_INTRO_H
+#ifndef BTS_QT_INTRO_H
+#define BTS_QT_INTRO_H
 
 #include <QDialog>
 #include <QMutex>
@@ -72,4 +72,4 @@ private:
     friend class FreespaceChecker;
 };
 
-#endif // HTS_QT_INTRO_H
+#endif // BTS_QT_INTRO_H

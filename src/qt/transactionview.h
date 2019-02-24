@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_QT_TRANSACTIONVIEW_H
-#define HTS_QT_TRANSACTIONVIEW_H
+#ifndef BTS_QT_TRANSACTIONVIEW_H
+#define BTS_QT_TRANSACTIONVIEW_H
 
 #include "guiutil.h"
 
@@ -117,4 +117,4 @@ public Q_SLOTS:
 
 };
 
-#endif // HTS_QT_TRANSACTIONVIEW_H
+#endif // BTS_QT_TRANSACTIONVIEW_H

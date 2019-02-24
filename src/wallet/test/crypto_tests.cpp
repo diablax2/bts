@@ -4,7 +4,7 @@
 
 #include "random.h"
 #include "utilstrencodings.h"
-#include "test/test_HTS.h"
+#include "test/test_BTS.h"
 #include "wallet/crypter.h"
 
 #include <vector>

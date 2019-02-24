@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_QT_SENDCOINSDIALOG_H
-#define HTS_QT_SENDCOINSDIALOG_H
+#ifndef BTS_QT_SENDCOINSDIALOG_H
+#define BTS_QT_SENDCOINSDIALOG_H
 
 #include "walletmodel.h"
 
@@ -28,7 +28,7 @@ QT_END_NAMESPACE
 
 const int defaultConfirmTarget = 25;
 
-/** Dialog for sending HTSs */
+/** Dialog for sending BTSs */
 class SendCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -124,4 +124,4 @@ private:
     int secDelay;
 };
 
-#endif // HTS_QT_SENDCOINSDIALOG_H
+#endif // BTS_QT_SENDCOINSDIALOG_H

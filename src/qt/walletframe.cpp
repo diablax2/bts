@@ -5,7 +5,7 @@
 #include "walletframe.h"
 #include "skinize.h"
 
-#include "HTSgui.h"
+#include "BTSgui.h"
 #include "walletview.h"
 #include "util.h"
 
@@ -14,7 +14,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
-WalletFrame::WalletFrame(const PlatformStyle *platformStyle, HTSGUI *_gui) :
+WalletFrame::WalletFrame(const PlatformStyle *platformStyle, BTSGUI *_gui) :
     QFrame(_gui),
     gui(_gui),
     platformStyle(platformStyle)
@@ -73,7 +73,7 @@ bool WalletFrame::addWallet(const QString& name, WalletModel *walletModel)
         return false;
 
     WalletView *walletView = new WalletView(platformStyle, this);
-    walletView->setHTSGUI(gui);
+    walletView->setBTSGUI(gui);
     walletView->setClientModel(clientModel);
     walletView->setWalletModel(walletModel);
     walletView->showOutOfSyncWarning(bOutOfSync);

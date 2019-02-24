@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_QT_NOTIFICATOR_H
-#define HTS_QT_NOTIFICATOR_H
+#ifndef BTS_QT_NOTIFICATOR_H
+#define BTS_QT_NOTIFICATOR_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/HTS-config.h"
+#include "config/BTS-config.h"
 #endif
 
 #include <QIcon>
@@ -77,4 +77,4 @@ private:
 #endif
 };
 
-#endif // HTS_QT_NOTIFICATOR_H
+#endif // BTS_QT_NOTIFICATOR_H

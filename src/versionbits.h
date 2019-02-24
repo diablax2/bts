@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_CONSENSUS_VERSIONBITS
-#define HTS_CONSENSUS_VERSIONBITS
+#ifndef BTS_CONSENSUS_VERSIONBITS
+#define BTS_CONSENSUS_VERSIONBITS
 
 #include "chain.h"
 #include <map>
@@ -20,7 +20,7 @@ static const int32_t VERSIONBITS_NUM_BITS = 29;
 
 /***
 *
-* HTS Version Bits
+* BTS Version Bits
 *
 * SIGNAL
 *

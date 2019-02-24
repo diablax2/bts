@@ -4,8 +4,8 @@
 
 #include "guiutil.h"
 
-#include "HTSaddressvalidator.h"
-#include "HTSunits.h"
+#include "BTSaddressvalidator.h"
+#include "BTSunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -117,7 +117,7 @@ static std::string DummyAddress(const CChainParams &params)
     sourcedata.insert(sourcedata.end(), dummydata, dummydata + sizeof(dummydata));
     for(int i=0; i<256; ++i) { // Try every trailing byte
         std::string s = EncodeBase58(begin_ptr(sourcedata), end_ptr(sourcedata));
-        if (!CHTSAddress(s).IsValid())
+        if (!CBTSAddress(s).IsValid())
             return s;
         sourcedata[sourcedata.size()-1] += 1;
     }
@@ -132,11 +132,11 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a HTS address or OpenAlias address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a BTS address or OpenAlias address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
-    widget->setValidator(new HTSAddressEntryValidator(parent));
-    widget->setCheckValidator(new HTSAddressCheckValidator(parent));
+    widget->setValidator(new BTSAddressEntryValidator(parent));
+    widget->setCheckValidator(new BTSAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -148,10 +148,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseHTSURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseBTSURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no HTS: URI
-    if(!uri.isValid() || uri.scheme() != QString("HTS"))
+    // return if URI is not valid or is no BTS: URI
+    if(!uri.isValid() || uri.scheme() != QString("BTS"))
         return false;
 
     SendCoinsRecipient rv;
@@ -191,7 +191,7 @@ bool parseHTSURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!HTSUnits::parse(HTSUnits::HTS, i->second, &rv.amount))
+                if(!BTSUnits::parse(BTSUnits::BTS, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -209,20 +209,20 @@ bool parseHTSURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseHTSURI(QString uri, SendCoinsRecipient *out)
+bool parseBTSURI(QString uri, SendCoinsRecipient *out)
 {
     QUrl uriInstance(uri);
-    return parseHTSURI(uriInstance, out);
+    return parseBTSURI(uriInstance, out);
 }
 
-QString formatHTSURI(const SendCoinsRecipient &info)
+QString formatBTSURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("HTS:%1").arg(info.address);
+    QString ret = QString("BTS:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(HTSUnits::format(HTSUnits::HTS, info.amount, false, HTSUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BTSUnits::format(BTSUnits::BTS, info.amount, false, BTSUnits::separatorNever));
         paramCount++;
     }
 
@@ -245,7 +245,7 @@ QString formatHTSURI(const SendCoinsRecipient &info)
 
 bool isDust(const QString& address, const CAmount& amount)
 {
-    CTxDestination dest = CHTSAddress(address.toStdString()).Get();
+    CTxDestination dest = CBTSAddress(address.toStdString()).Get();
     CScript script = GetScriptForDestination(dest);
     CTxOut txOut(amount, script);
     return txOut.IsDust(::minRelayTxFee);
@@ -418,11 +418,11 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
-void openHTSConf()
+void openBTSConf()
 {
      boost::filesystem::path pathConfig = GetConfigFile();
 
-     /* Open HTS.conf with the associated application */
+     /* Open BTS.conf with the associated application */
      if (boost::filesystem::exists(pathConfig))
          QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -611,15 +611,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "HTS.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "BTS.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "HTS (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("HTS (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "BTS (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("BTS (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for HTS*.lnk
+    // check for BTS*.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -711,8 +711,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "HTS.desktop";
-    return GetAutostartDir() / strprintf("HTS-%s.lnk", chain);
+        return GetAutostartDir() / "BTS.desktop";
+    return GetAutostartDir() / strprintf("BTS-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -751,13 +751,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a HTS.desktop file to the autostart directory:
+        // Write a BTS.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=HTS\n";
+            optionFile << "Name=BTS\n";
         else
-            optionFile << strprintf("Name=HTS (%s)\n", chain);
+            optionFile << strprintf("Name=BTS (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d -devnet=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false), GetBoolArg("-devnet", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -776,7 +776,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the HTS app
+    // loop through the list of startup items and try to find the BTS app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -808,21 +808,21 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef HTSAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef BTSAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, HTSAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, BTSAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef HTSAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef BTSAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, HTSAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, BTSAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add HTS app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, HTSAppUrl, NULL, NULL);
+        // add BTS app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, BTSAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {
         // remove item

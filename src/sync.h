@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_SYNC_H
-#define HTS_SYNC_H
+#ifndef BTS_SYNC_H
+#define BTS_SYNC_H
 
 #include "threadsafety.h"
 
@@ -286,4 +286,4 @@ public:
     }
 };
 
-#endif // HTS_SYNC_H
+#endif // BTS_SYNC_H

@@ -13,7 +13,7 @@
 #include "serialize.h"
 #include "util.h"
 
-#include "test/test_HTS.h"
+#include "test/test_BTS.h"
 
 #include <stdint.h>
 

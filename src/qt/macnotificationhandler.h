@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_QT_MACNOTIFICATIONHANDLER_H
-#define HTS_QT_MACNOTIFICATIONHANDLER_H
+#ifndef BTS_QT_MACNOTIFICATIONHANDLER_H
+#define BTS_QT_MACNOTIFICATIONHANDLER_H
 
 #include <QObject>
 
@@ -27,4 +27,4 @@ public:
 };
 
 
-#endif // HTS_QT_MACNOTIFICATIONHANDLER_H
+#endif // BTS_QT_MACNOTIFICATIONHANDLER_H

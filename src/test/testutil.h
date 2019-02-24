@@ -5,11 +5,11 @@
 /**
  * Utility functions shared by unit tests
  */
-#ifndef HTS_TEST_TESTUTIL_H
-#define HTS_TEST_TESTUTIL_H
+#ifndef BTS_TEST_TESTUTIL_H
+#define BTS_TEST_TESTUTIL_H
 
 #include <boost/filesystem/path.hpp>
 
 boost::filesystem::path GetTempPath();
 
-#endif // HTS_TEST_TESTUTIL_H
+#endif // BTS_TEST_TESTUTIL_H

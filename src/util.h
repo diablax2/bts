@@ -7,11 +7,11 @@
  * Server/client environment: argument handling, config file parsing,
  * logging, thread wrappers
  */
-#ifndef HTS_UTIL_H
-#define HTS_UTIL_H
+#ifndef BTS_UTIL_H
+#define BTS_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/HTS-config.h"
+#include "config/BTS-config.h"
 #endif
 
 #include "compat.h"
@@ -54,8 +54,8 @@ extern bool fLogIPs;
 extern std::atomic<bool> fReopenDebugLog;
 extern CTranslationInterface translationInterface;
 
-extern const char * const HTS_CONF_FILENAME;
-extern const char * const HTS_PID_FILENAME;
+extern const char * const BTS_CONF_FILENAME;
+extern const char * const BTS_PID_FILENAME;
 
 /**
  * Translation function: Call Translate signal on UI interface, which returns a boost::optional result.
@@ -229,7 +229,7 @@ void RenameThread(const char* name);
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("HTS-%s", name);
+    std::string s = strprintf("BTS-%s", name);
     RenameThread(s.c_str());
     try
     {
@@ -254,4 +254,4 @@ template <typename Callable> void TraceThread(const char* name,  Callable func)
 
 std::string CopyrightHolders(const std::string& strPrefix);
 
-#endif // HTS_UTIL_H
+#endif // BTS_UTIL_H

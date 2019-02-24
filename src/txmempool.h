@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_TXMEMPOOL_H
-#define HTS_TXMEMPOOL_H
+#ifndef BTS_TXMEMPOOL_H
+#define BTS_TXMEMPOOL_H
 
 #include <list>
 #include <memory>
@@ -731,4 +731,4 @@ struct TxCoinAgePriorityCompare
     }
 };
 
-#endif // HTS_TXMEMPOOL_H
+#endif // BTS_TXMEMPOOL_H

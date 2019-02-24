@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_NET_H
-#define HTS_NET_H
+#ifndef BTS_NET_H
+#define BTS_NET_H
 
 #include "amount.h"
 #include "bloom.h"
@@ -855,4 +855,4 @@ struct AddedNodeInfo
 
 std::vector<AddedNodeInfo> GetAddedNodeInfo();
 
-#endif // HTS_NET_H
+#endif // BTS_NET_H

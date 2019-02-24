@@ -55,7 +55,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap>:/icons/HTS</pixmap>
+        <pixmap>:/icons/BTS</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>

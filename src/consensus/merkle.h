@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_MERKLE
-#define HTS_MERKLE
+#ifndef BTS_MERKLE
+#define BTS_MERKLE
 
 #include <stdint.h>
 #include <vector>

@@ -1,93 +1,93 @@
-bin_PROGRAMS += qt/HTS-qt
-EXTRA_LIBRARIES += qt/libHTSqt.a
+bin_PROGRAMS += qt/BTS-qt
+EXTRA_LIBRARIES += qt/libBTSqt.a
 
-# HTS qt core #
+# BTS qt core #
 QT_TS = \
-  qt/locale/HTS_af.ts \
-  qt/locale/HTS_af_ZA.ts \
-  qt/locale/HTS_ar.ts \
-  qt/locale/HTS_be_BY.ts \
-  qt/locale/HTS_bg.ts \
-  qt/locale/HTS_bg_BG.ts \
-  qt/locale/HTS_ca_ES.ts \
-  qt/locale/HTS_ca.ts \
-  qt/locale/HTS_ca@valencia.ts \
-  qt/locale/HTS_cs_CZ.ts \
-  qt/locale/HTS_cs.ts \
-  qt/locale/HTS_cy.ts \
-  qt/locale/HTS_da.ts \
-  qt/locale/HTS_de.ts \
-  qt/locale/HTS_el_GR.ts \
-  qt/locale/HTS_el.ts \
-  qt/locale/HTS_en_GB.ts \
-  qt/locale/HTS_en.ts \
-  qt/locale/HTS_eo.ts \
-  qt/locale/HTS_es_AR.ts \
-  qt/locale/HTS_es_CL.ts \
-  qt/locale/HTS_es_CO.ts \
-  qt/locale/HTS_es_DO.ts \
-  qt/locale/HTS_es_ES.ts \
-  qt/locale/HTS_es_MX.ts \
-  qt/locale/HTS_es.ts \
-  qt/locale/HTS_es_UY.ts \
-  qt/locale/HTS_es_VE.ts \
-  qt/locale/HTS_et.ts \
-  qt/locale/HTS_eu_ES.ts \
-  qt/locale/HTS_fa_IR.ts \
-  qt/locale/HTS_fa.ts \
-  qt/locale/HTS_fi.ts \
-  qt/locale/HTS_fr_CA.ts \
-  qt/locale/HTS_fr_FR.ts \
-  qt/locale/HTS_fr.ts \
-  qt/locale/HTS_gl.ts \
-  qt/locale/HTS_he.ts \
-  qt/locale/HTS_hi_IN.ts \
-  qt/locale/HTS_hr.ts \
-  qt/locale/HTS_hu.ts \
-  qt/locale/HTS_id_ID.ts \
-  qt/locale/HTS_it_IT.ts \
-  qt/locale/HTS_it.ts \
-  qt/locale/HTS_ja.ts \
-  qt/locale/HTS_ka.ts \
-  qt/locale/HTS_kk_KZ.ts \
-  qt/locale/HTS_ko_KR.ts \
-  qt/locale/HTS_ku_IQ.ts \
-  qt/locale/HTS_ky.ts \
-  qt/locale/HTS_la.ts \
-  qt/locale/HTS_lt.ts \
-  qt/locale/HTS_lv_LV.ts \
-  qt/locale/HTS_mk_MK.ts \
-  qt/locale/HTS_mn.ts \
-  qt/locale/HTS_ms_MY.ts \
-  qt/locale/HTS_nb.ts \
-  qt/locale/HTS_nl.ts \
-  qt/locale/HTS_pam.ts \
-  qt/locale/HTS_pl.ts \
-  qt/locale/HTS_pt_BR.ts \
-  qt/locale/HTS_pt_PT.ts \
-  qt/locale/HTS_ro_RO.ts \
-  qt/locale/HTS_ro.ts \
-  qt/locale/HTS_ru_RU.ts \
-  qt/locale/HTS_ru.ts \
-  qt/locale/HTS_sk.ts \
-  qt/locale/HTS_sl_SI.ts \
-  qt/locale/HTS_sq.ts \
-  qt/locale/HTS_sr@latin.ts \
-  qt/locale/HTS_sr.ts \
-  qt/locale/HTS_sv.ts \
-  qt/locale/HTS_ta.ts \
-  qt/locale/HTS_th_TH.ts \
-  qt/locale/HTS_tr_TR.ts \
-  qt/locale/HTS_tr.ts \
-  qt/locale/HTS_uk.ts \
-  qt/locale/HTS_ur_PK.ts \
-  qt/locale/HTS_uz@Cyrl.ts \
-  qt/locale/HTS_vi.ts \
-  qt/locale/HTS_vi_VN.ts \
-  qt/locale/HTS_zh_CN.ts \
-  qt/locale/HTS_zh_HK.ts \
-  qt/locale/HTS_zh.ts \
-  qt/locale/HTS_zh_TW.ts
+  qt/locale/BTS_af.ts \
+  qt/locale/BTS_af_ZA.ts \
+  qt/locale/BTS_ar.ts \
+  qt/locale/BTS_be_BY.ts \
+  qt/locale/BTS_bg.ts \
+  qt/locale/BTS_bg_BG.ts \
+  qt/locale/BTS_ca_ES.ts \
+  qt/locale/BTS_ca.ts \
+  qt/locale/BTS_ca@valencia.ts \
+  qt/locale/BTS_cs_CZ.ts \
+  qt/locale/BTS_cs.ts \
+  qt/locale/BTS_cy.ts \
+  qt/locale/BTS_da.ts \
+  qt/locale/BTS_de.ts \
+  qt/locale/BTS_el_GR.ts \
+  qt/locale/BTS_el.ts \
+  qt/locale/BTS_en_GB.ts \
+  qt/locale/BTS_en.ts \
+  qt/locale/BTS_eo.ts \
+  qt/locale/BTS_es_AR.ts \
+  qt/locale/BTS_es_CL.ts \
+  qt/locale/BTS_es_CO.ts \
+  qt/locale/BTS_es_DO.ts \
+  qt/locale/BTS_es_ES.ts \
+  qt/locale/BTS_es_MX.ts \
+  qt/locale/BTS_es.ts \
+  qt/locale/BTS_es_UY.ts \
+  qt/locale/BTS_es_VE.ts \
+  qt/locale/BTS_et.ts \
+  qt/locale/BTS_eu_ES.ts \
+  qt/locale/BTS_fa_IR.ts \
+  qt/locale/BTS_fa.ts \
+  qt/locale/BTS_fi.ts \
+  qt/locale/BTS_fr_CA.ts \
+  qt/locale/BTS_fr_FR.ts \
+  qt/locale/BTS_fr.ts \
+  qt/locale/BTS_gl.ts \
+  qt/locale/BTS_he.ts \
+  qt/locale/BTS_hi_IN.ts \
+  qt/locale/BTS_hr.ts \
+  qt/locale/BTS_hu.ts \
+  qt/locale/BTS_id_ID.ts \
+  qt/locale/BTS_it_IT.ts \
+  qt/locale/BTS_it.ts \
+  qt/locale/BTS_ja.ts \
+  qt/locale/BTS_ka.ts \
+  qt/locale/BTS_kk_KZ.ts \
+  qt/locale/BTS_ko_KR.ts \
+  qt/locale/BTS_ku_IQ.ts \
+  qt/locale/BTS_ky.ts \
+  qt/locale/BTS_la.ts \
+  qt/locale/BTS_lt.ts \
+  qt/locale/BTS_lv_LV.ts \
+  qt/locale/BTS_mk_MK.ts \
+  qt/locale/BTS_mn.ts \
+  qt/locale/BTS_ms_MY.ts \
+  qt/locale/BTS_nb.ts \
+  qt/locale/BTS_nl.ts \
+  qt/locale/BTS_pam.ts \
+  qt/locale/BTS_pl.ts \
+  qt/locale/BTS_pt_BR.ts \
+  qt/locale/BTS_pt_PT.ts \
+  qt/locale/BTS_ro_RO.ts \
+  qt/locale/BTS_ro.ts \
+  qt/locale/BTS_ru_RU.ts \
+  qt/locale/BTS_ru.ts \
+  qt/locale/BTS_sk.ts \
+  qt/locale/BTS_sl_SI.ts \
+  qt/locale/BTS_sq.ts \
+  qt/locale/BTS_sr@latin.ts \
+  qt/locale/BTS_sr.ts \
+  qt/locale/BTS_sv.ts \
+  qt/locale/BTS_ta.ts \
+  qt/locale/BTS_th_TH.ts \
+  qt/locale/BTS_tr_TR.ts \
+  qt/locale/BTS_tr.ts \
+  qt/locale/BTS_uk.ts \
+  qt/locale/BTS_ur_PK.ts \
+  qt/locale/BTS_uz@Cyrl.ts \
+  qt/locale/BTS_vi.ts \
+  qt/locale/BTS_vi_VN.ts \
+  qt/locale/BTS_zh_CN.ts \
+  qt/locale/BTS_zh_HK.ts \
+  qt/locale/BTS_zh.ts \
+  qt/locale/BTS_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -113,10 +113,10 @@ QT_MOC_CPP = \
   qt/moc_addresstablemodel.cpp \
   qt/moc_askpassphrasedialog.cpp \
   qt/moc_bantablemodel.cpp \
-  qt/moc_HTSaddressvalidator.cpp \
-  qt/moc_HTSamountfield.cpp \
-  qt/moc_HTSgui.cpp \
-  qt/moc_HTSunits.cpp \
+  qt/moc_BTSaddressvalidator.cpp \
+  qt/moc_BTSamountfield.cpp \
+  qt/moc_BTSgui.cpp \
+  qt/moc_BTSunits.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
@@ -155,35 +155,35 @@ QT_MOC_CPP = \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp
 
-HTS_MM = \
+BTS_MM = \
   qt/macdockiconhandler.mm \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/HTS.moc \
-  qt/HTSamountfield.moc \
+  qt/BTS.moc \
+  qt/BTSamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_HTS.cpp
-QT_QRC = qt/HTS.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_HTS_locale.cpp
-QT_QRC_LOCALE = qt/HTS_locale.qrc
+QT_QRC_CPP = qt/qrc_BTS.cpp
+QT_QRC = qt/BTS.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_BTS_locale.cpp
+QT_QRC_LOCALE = qt/BTS_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
 PROTOBUF_PROTO = qt/paymentrequest.proto
 
-HTS_QT_H = \
+BTS_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
   qt/bantablemodel.h \
-  qt/HTSaddressvalidator.h \
-  qt/HTSamountfield.h \
-  qt/HTSgui.h \
-  qt/HTSunits.h \
+  qt/BTSaddressvalidator.h \
+  qt/BTSamountfield.h \
+  qt/BTSgui.h \
+  qt/BTSunits.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
@@ -233,9 +233,9 @@ HTS_QT_H = \
 
 RES_ICONS = \
   qt/res/icons/background_top.png \
-  qt/res/icons/HTS.png \
-  qt/res/icons/HTS.ico \
-  qt/res/icons/HTS_testnet.ico \
+  qt/res/icons/BTS.png \
+  qt/res/icons/BTS.ico \
+  qt/res/icons/BTS_testnet.ico \
   qt/res/icons/ghost.png \
   qt/res/icons/address-book.png \
   qt/res/icons/quit.png \
@@ -300,6 +300,15 @@ RES_ICONS = \
   qt/res/icons/transaction_ns.png \
   qt/res/icons/transaction_s.png \
   qt/res/icons/transaction_hover.png \
+  qt/res/icons/Menu.png \
+  qt/res/icons/about.png \
+  qt/res/icons/about_testnet.png \
+  qt/res/icons/bkg.png \
+  qt/res/icons/splash.png \
+  qt/res/icons/splash_testnet.png \
+  qt/res/icons/wallet_bgcoin.png \
+  qt/res/icons/wallet_bgcoin_testnet.png \
+  qt/res/icons/wraith.png \
   qt/res/fonts/roboto.ttf \
   qt/res/fonts/robotoregular.ttf \
   qt/res/fonts/source.ttf \
@@ -307,12 +316,12 @@ RES_ICONS = \
   qt/res/fonts/Roboto-Bold.ttf \
   qt/res/fonts/Roboto-Medium.ttf
 
-HTS_QT_CPP = \
+BTS_QT_CPP = \
   qt/bantablemodel.cpp \
-  qt/HTSaddressvalidator.cpp \
-  qt/HTSamountfield.cpp \
-  qt/HTSgui.cpp \
-  qt/HTSunits.cpp \
+  qt/BTSaddressvalidator.cpp \
+  qt/BTSamountfield.cpp \
+  qt/BTSgui.cpp \
+  qt/BTSunits.cpp \
   qt/getaddresstoreceive.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
@@ -333,11 +342,11 @@ HTS_QT_CPP = \
   qt/utilitydialog.cpp
 
 if TARGET_WINDOWS
-HTS_QT_CPP += qt/winshutdownmonitor.cpp
+BTS_QT_CPP += qt/winshutdownmonitor.cpp
 endif
 
 if ENABLE_WALLET
-HTS_QT_CPP += \
+BTS_QT_CPP += \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -370,19 +379,19 @@ RES_IMAGES =
 
 RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
 
-HTS_RC = qt/res/HTS-qt-res.rc
+BTS_RC = qt/res/BTS-qt-res.rc
 
-HTS_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+BTS_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
 
-qt_libHTSqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(HTS_INCLUDES) $(HTS_QT_INCLUDES) \
+qt_libBTSqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(BTS_INCLUDES) $(BTS_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_libHTSqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libBTSqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_libHTSqt_a_SOURCES = $(HTS_QT_CPP) $(HTS_QT_H) $(QT_FORMS_UI) \
+qt_libBTSqt_a_SOURCES = $(BTS_QT_CPP) $(BTS_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
-nodist_qt_libHTSqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_qt_libBTSqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
 
 # forms/foo.h -> forms/ui_foo.h
@@ -391,71 +400,71 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libHTSqt_a_OBJECTS) $(qt_HTS_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libBTSqt_a_OBJECTS) $(qt_BTS_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# HTS-qt binary #
-qt_HTS_qt_CPPFLAGS = $(AM_CPPFLAGS) $(HTS_INCLUDES) $(CURL_INCLUDES) $(HTS_QT_INCLUDES) \
+# BTS-qt binary #
+qt_BTS_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BTS_INCLUDES) $(CURL_INCLUDES) $(BTS_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_HTS_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_BTS_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_HTS_qt_SOURCES = qt/HTS.cpp
+qt_BTS_qt_SOURCES = qt/BTS.cpp
 if TARGET_DARWIN
-  qt_HTS_qt_SOURCES += $(HTS_MM)
+  qt_BTS_qt_SOURCES += $(BTS_MM)
 endif
 if TARGET_WINDOWS
-  qt_HTS_qt_SOURCES += $(HTS_RC)
+  qt_BTS_qt_SOURCES += $(BTS_RC)
 endif
-qt_HTS_qt_LDADD = qt/libHTSqt.a $(LIBHTS_SERVER)
+qt_BTS_qt_LDADD = qt/libBTSqt.a $(LIBBTS_SERVER)
 if ENABLE_WALLET
-qt_HTS_qt_LDADD += $(LIBHTS_WALLET)
+qt_BTS_qt_LDADD += $(LIBBTS_WALLET)
 endif
 if ENABLE_ZMQ
-qt_HTS_qt_LDADD += $(LIBHTS_ZMQ) $(ZMQ_LIBS)
+qt_BTS_qt_LDADD += $(LIBBTS_ZMQ) $(ZMQ_LIBS)
 endif
-qt_HTS_qt_LDADD += $(LIBHTS_CLI) $(LIBHTS_COMMON) $(LIBHTS_UTIL) $(LIBHTS_CONSENSUS) $(LIBHTS_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_BTS_qt_LDADD += $(LIBBTS_CLI) $(LIBBTS_COMMON) $(LIBBTS_UTIL) $(LIBBTS_CONSENSUS) $(LIBBTS_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(UNBOUND_LIBS) $(SSL_LIBS) $(CURL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-qt_HTS_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_HTS_qt_LIBTOOLFLAGS = --tag CXX
+qt_BTS_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_BTS_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-$(srcdir)/qt/HTSstrings.cpp: $(libHTS_server_a_SOURCES) $(libHTS_wallet_a_SOURCES)
+$(srcdir)/qt/BTSstrings.cpp: $(libBTS_server_a_SOURCES) $(libBTS_wallet_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" COPYRIGHT_HOLDERS_SUBSTITUTION="$(COPYRIGHT_HOLDERS_SUBSTITUTION)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: $(srcdir)/qt/HTSstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(HTS_QT_CPP) $(HTS_QT_H) $(HTS_MM)
+translate: $(srcdir)/qt/BTSstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BTS_QT_CPP) $(BTS_QT_H) $(BTS_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/HTS_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/BTS_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@cp -f $< $(@D)/temp_$(<F)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name HTS_locale $(@D)/temp_$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name BTS_locale $(@D)/temp_$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 	@rm $(@D)/temp_$(<F)
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name HTS $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name BTS $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libHTSqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
+CLEAN_QT = $(nodist_qt_libBTSqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-HTS_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libHTSqt_a_OBJECTS) $(qt_HTS_qt_OBJECTS) qt/HTS-qt$(EXEEXT) $(LIBHTSQT)
+BTS_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libBTSqt_a_OBJECTS) $(qt_BTS_qt_OBJECTS) qt/BTS-qt$(EXEEXT) $(LIBBTSQT)
 
-HTS_qt : qt/HTS-qt$(EXEEXT)
+BTS_qt : qt/BTS-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

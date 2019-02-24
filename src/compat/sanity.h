@@ -2,10 +2,10 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_COMPAT_SANITY_H
-#define HTS_COMPAT_SANITY_H
+#ifndef BTS_COMPAT_SANITY_H
+#define BTS_COMPAT_SANITY_H
 
 bool glibc_sanity_test();
 bool glibcxx_sanity_test();
 
-#endif // HTS_COMPAT_SANITY_H
+#endif // BTS_COMPAT_SANITY_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_HTTPSERVER_H
-#define HTS_HTTPSERVER_H
+#ifndef BTS_HTTPSERVER_H
+#define BTS_HTTPSERVER_H
 
 #include <string>
 #include <stdint.h>
@@ -146,4 +146,4 @@ private:
     struct event* ev;
 };
 
-#endif // HTS_HTTPSERVER_H
+#endif // BTS_HTTPSERVER_H

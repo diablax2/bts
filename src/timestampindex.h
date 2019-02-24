@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef HTS_TIMESTAMPINDEX_H
-#define HTS_TIMESTAMPINDEX_H
+#ifndef BTS_TIMESTAMPINDEX_H
+#define BTS_TIMESTAMPINDEX_H
 
 #include "uint256.h"
 
@@ -128,4 +128,4 @@ struct CTimestampBlockIndexValue {
     }
 };
 
-#endif // HTS_TIMESTAMPINDEX_H
+#endif // BTS_TIMESTAMPINDEX_H
