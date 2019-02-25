@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_LIMITEDMAP_H
-#define BTS_LIMITEDMAP_H
+#ifndef BKS_LIMITEDMAP_H
+#define BKS_LIMITEDMAP_H
 
 #include <assert.h>
 #include <map>
@@ -94,4 +94,4 @@ public:
     }
 };
 
-#endif // BTS_LIMITEDMAP_H
+#endif // BKS_LIMITEDMAP_H

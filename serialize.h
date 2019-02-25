@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_SERIALIZE_H
-#define BTS_SERIALIZE_H
+#ifndef BKS_SERIALIZE_H
+#define BKS_SERIALIZE_H
 
 #include "compat/endian.h"
 
@@ -973,4 +973,4 @@ public:
     }
 };
 
-#endif // BTS_SERIALIZE_H
+#endif // BKS_SERIALIZE_H

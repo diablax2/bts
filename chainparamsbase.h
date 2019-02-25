@@ -2,15 +2,15 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_CHAINPARAMSBASE_H
-#define BTS_CHAINPARAMSBASE_H
+#ifndef BKS_CHAINPARAMSBASE_H
+#define BKS_CHAINPARAMSBASE_H
 
 #include <string>
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between BTS-cli and BTSd)
- * of a given instance of the BTS system.
+ * CBaseChainParams defines the base parameters (shared between BKS-cli and BKSd)
+ * of a given instance of the BKS system.
  */
 class CBaseChainParams
 {
@@ -60,4 +60,4 @@ std::string ChainNameFromCommandLine();
  */
 bool AreBaseParamsConfigured();
 
-#endif // BTS_CHAINPARAMSBASE_H
+#endif // BKS_CHAINPARAMSBASE_H

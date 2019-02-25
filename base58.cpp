@@ -208,13 +208,13 @@ int CBase58Data::CompareTo(const CBase58Data& b58) const
 
 namespace
 {
-class CBTSAddressVisitor : public boost::static_visitor<bool>
+class CBKSAddressVisitor : public boost::static_visitor<bool>
 {
 private:
-    CBTSAddress* addr;
+    CBKSAddress* addr;
 
 public:
-    CBTSAddressVisitor(CBTSAddress* addrIn) : addr(addrIn) {}
+    CBKSAddressVisitor(CBKSAddress* addrIn) : addr(addrIn) {}
 
     bool operator()(const CKeyID& id) const { return addr->Set(id); }
     bool operator()(const CScriptID& id) const { return addr->Set(id); }
@@ -223,29 +223,29 @@ public:
 
 } // anon namespace
 
-bool CBTSAddress::Set(const CKeyID& id)
+bool CBKSAddress::Set(const CKeyID& id)
 {
     SetData(Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS), &id, 20);
     return true;
 }
 
-bool CBTSAddress::Set(const CScriptID& id)
+bool CBKSAddress::Set(const CScriptID& id)
 {
     SetData(Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS), &id, 20);
     return true;
 }
 
-bool CBTSAddress::Set(const CTxDestination& dest)
+bool CBKSAddress::Set(const CTxDestination& dest)
 {
-    return boost::apply_visitor(CBTSAddressVisitor(this), dest);
+    return boost::apply_visitor(CBKSAddressVisitor(this), dest);
 }
 
-bool CBTSAddress::IsValid() const
+bool CBKSAddress::IsValid() const
 {
     return IsValid(Params());
 }
 
-bool CBTSAddress::IsValid(const CChainParams& params) const
+bool CBKSAddress::IsValid(const CChainParams& params) const
 {
     bool fCorrectSize = vchData.size() == 20;
     bool fKnownVersion = vchVersion == params.Base58Prefix(CChainParams::PUBKEY_ADDRESS) ||
@@ -253,7 +253,7 @@ bool CBTSAddress::IsValid(const CChainParams& params) const
     return fCorrectSize && fKnownVersion;
 }
 
-CTxDestination CBTSAddress::Get() const
+CTxDestination CBKSAddress::Get() const
 {
     if (!IsValid())
         return CNoDestination();
@@ -267,7 +267,7 @@ CTxDestination CBTSAddress::Get() const
         return CNoDestination();
 }
 
-bool CBTSAddress::GetIndexKey(uint160& hashBytes, int& type) const
+bool CBKSAddress::GetIndexKey(uint160& hashBytes, int& type) const
 {
     if (!IsValid()) {
         return false;
@@ -284,7 +284,7 @@ bool CBTSAddress::GetIndexKey(uint160& hashBytes, int& type) const
     return false;
 }
 
-bool CBTSAddress::GetKeyID(CKeyID& keyID) const
+bool CBKSAddress::GetKeyID(CKeyID& keyID) const
 {
     if (!IsValid() || vchVersion != Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS))
         return false;
@@ -294,12 +294,12 @@ bool CBTSAddress::GetKeyID(CKeyID& keyID) const
     return true;
 }
 
-bool CBTSAddress::IsScript() const
+bool CBKSAddress::IsScript() const
 {
     return IsValid() && vchVersion == Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS);
 }
 
-void CBTSSecret::SetKey(const CKey& vchSecret)
+void CBKSSecret::SetKey(const CKey& vchSecret)
 {
     assert(vchSecret.IsValid());
     SetData(Params().Base58Prefix(CChainParams::SECRET_KEY), vchSecret.begin(), vchSecret.size());
@@ -307,7 +307,7 @@ void CBTSSecret::SetKey(const CKey& vchSecret)
         vchData.push_back(1);
 }
 
-CKey CBTSSecret::GetKey()
+CKey CBKSSecret::GetKey()
 {
     CKey ret;
     assert(vchData.size() >= 32);
@@ -315,19 +315,19 @@ CKey CBTSSecret::GetKey()
     return ret;
 }
 
-bool CBTSSecret::IsValid() const
+bool CBKSSecret::IsValid() const
 {
     bool fExpectedFormat = vchData.size() == 32 || (vchData.size() == 33 && vchData[32] == 1);
     bool fCorrectVersion = vchVersion == Params().Base58Prefix(CChainParams::SECRET_KEY);
     return fExpectedFormat && fCorrectVersion;
 }
 
-bool CBTSSecret::SetString(const char* pszSecret)
+bool CBKSSecret::SetString(const char* pszSecret)
 {
     return CBase58Data::SetString(pszSecret) && IsValid();
 }
 
-bool CBTSSecret::SetString(const std::string& strSecret)
+bool CBKSSecret::SetString(const std::string& strSecret)
 {
     return SetString(strSecret.c_str());
 }

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_HTTPRPC_H
-#define BTS_HTTPRPC_H
+#ifndef BKS_HTTPRPC_H
+#define BKS_HTTPRPC_H
 
 #include <string>
 #include <map>

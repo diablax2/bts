@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_ADDRESSINDEX_H
-#define BTS_ADDRESSINDEX_H
+#ifndef BKS_ADDRESSINDEX_H
+#define BKS_ADDRESSINDEX_H
 
 #include "uint256.h"
 #include "amount.h"
@@ -104,7 +104,7 @@ struct CAddressIndexKey {
     void Serialize(Stream& s, int nType, int nVersion) const {
         ser_writedata8(s, type);
         hashBytes.Serialize(s, nType, nVersion);
-        // HeigBTS are stored big-endian for key sorting in LevelDB
+        // Heights are stored big-endian for key sorting in LevelDB
         ser_writedata32be(s, blockHeight);
         ser_writedata32be(s, txindex);
         txhash.Serialize(s, nType, nVersion);
@@ -292,4 +292,4 @@ struct CMempoolAddressDeltaKeyCompare
     }
 };
 
-#endif // BTS_ADDRESSINDEX_H
+#endif // BKS_ADDRESSINDEX_H

@@ -55,7 +55,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Bitcoinstake Coin is 25/Feb/2019 Born";
+    const char* pszTimestamp = "Bitkontacts is your friend in the crypto dating world";
     const CScript genesisOutputScript = CScript() << ParseHex("04bf5608f13e9b2781b839ea78adbd1cb90d8fc17dcc67028e93e65223ea77f8bc8d8eed1191f37dd0ad20f371912d86e1c2e7369251cb06d2a3fdc5e26262d6df") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -177,20 +177,20 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0x54;
-        pchMessageStart[1] = 0x22;
-        pchMessageStart[2] = 0x14;
-        pchMessageStart[3] = 0x40;
-        nDefaultPort = 54116;
+        pchMessageStart[0] = 0x80;
+        pchMessageStart[1] = 0x50;
+        pchMessageStart[2] = 0x34;
+        pchMessageStart[3] = 0x20;
+        nDefaultPort = 14444;
         nPruneAfterHeight = 100000;
         bnProofOfWorkLimit = arith_uint256(~arith_uint256() >> 1);
 
-        genesis = CreateGenesisBlock(1460561080, 16947, 0x1f00ffff, 1, 0);
-// For Genesis Block Start
+        genesis = CreateGenesisBlock(1460561060, 16927, 0x1f00ffff, 1, 0);
+/*
         printf("Generating genesis block...\n");
         uint32_t nounce = 1;
 		while(1) {
-         //printf("Nounce: %d\n", nounce);
+            //printf("Nounce: %d\n", nounce);
 			genesis.nNonce = nounce;
 			consensus.hashGenesisBlock = genesis.GetHash();
 			
@@ -207,20 +207,15 @@ public:
 		} 
 		
         printf("genesis: %s\n",consensus.hashGenesisBlock.GetHex().c_str());
-        printf("merklehash: %s\n",genesis.hashMerkleRoot.ToString().c_str());	
+        printf("merklehash: %s\n",genesis.hashMerkleRoot.ToString().c_str());	*/
            // for(; genesis.GetHash() > consensus.powLimit; genesis.nNonce++){ }
            // printf("new testnet genesis merkle root: %s\n", genesis.hashMerkleRoot.ToString().c_str());
            // printf("new testnet genesis nonce: %d\n", genesis.nNonce);
            // printf("new testnet genesis hash: %s\n", genesis.GetHash().ToString().c_str());
-
-
-// For Genesis Block End
-
-
 	      consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x"));
-        assert(genesis.hashMerkleRoot == uint256S("0x"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00009bdb9b9149e81c6afee6fa0eb83a8833baa740cae9ea4b285ace63fa07f5"));
+        assert(genesis.hashMerkleRoot == uint256S("0xa7a054f2b2ada772f51804ef5ad0b297f2b305976125caaa3b4e645505b75900"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,25);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,85);
@@ -228,8 +223,8 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vSeeds.push_back(CDNSSeedData("nav.community", ""));
-        vSeeds.push_back(CDNSSeedData("navcoin.org", ""));
+        vSeeds.push_back(CDNSSeedData("nav.community", "144.202.71.8"));
+        vSeeds.push_back(CDNSSeedData("navcoin.org", "144.202.71.8"));
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -241,7 +236,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            ( 0, uint256S("0")),
+            ( 0, uint256S("0x00009bdb9b9149e81c6afee6fa0eb83a8833baa740cae9ea4b285ace63fa07f5")),
 /*            (10000, uint256S("0x844f1eab31e8773328ba21970362b4fcff19622f13787cbbe164649ad2393b7a"))
             (10000, uint256S("0x844f1eab31e8773328ba21970362b4fcff19622f13787cbbe164649ad2393b7a"))
             (20000, uint256S("0xfea6d227117db665c5cff2fca0b29d850c5e7f064463d001f5228e80a7e21624"))

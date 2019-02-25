@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_PUBKEY_H
-#define BTS_PUBKEY_H
+#ifndef BKS_PUBKEY_H
+#define BKS_PUBKEY_H
 
 #include "hash.h"
 #include "serialize.h"
@@ -247,4 +247,4 @@ public:
     ~ECCVerifyHandle();
 };
 
-#endif // BTS_PUBKEY_H
+#endif // BKS_PUBKEY_H

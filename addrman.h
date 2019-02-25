@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_ADDRMAN_H
-#define BTS_ADDRMAN_H
+#ifndef BKS_ADDRMAN_H
+#define BKS_ADDRMAN_H
 
 #include "netbase.h"
 #include "protocol.h"
@@ -602,4 +602,4 @@ public:
 
 };
 
-#endif // BTS_ADDRMAN_H
+#endif // BKS_ADDRMAN_H

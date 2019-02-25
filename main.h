@@ -1,14 +1,14 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2018 The BTS Core developers
+// Copyright (c) 2018 The BKS Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_MAIN_H
-#define BTS_MAIN_H
+#ifndef BKS_MAIN_H
+#define BKS_MAIN_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/BTS-config.h"
+#include "config/BKS-config.h"
 #endif
 
 #include "amount.h"
@@ -171,47 +171,47 @@ inline int64_t GetCoinYearReward(int nHeight) {
     int64_t YearPercent = 10;
 
     if (nHeight <= 3000)
-        YearPercent = 51;
+        YearPercent = 50;
     else if (nHeight <= 6000)
-        YearPercent = 199;
+        YearPercent = 200;
     else if (nHeight <= 10000)
-        YearPercent = 299;
+        YearPercent = 300;
     else if (nHeight <= 13000)
-        YearPercent = 699;
+        YearPercent = 700;
     else if (nHeight <= 16000)
-        YearPercent = 299;
+        YearPercent = 300;
     else if (nHeight <= 20000)
-        YearPercent = 199;
+        YearPercent = 200;
     else if (nHeight <= 30000)
-        YearPercent = 99;
+        YearPercent = 100;
     else if (nHeight <= 33000)
-        YearPercent = 1199;
+        YearPercent = 1100;
     else if (nHeight <= 35000)
-        YearPercent = 599;
+        YearPercent = 600;
     else if (nHeight <= 40000)
-        YearPercent = 299;
+        YearPercent = 300;
     else if (nHeight <= 50000)
-        YearPercent = 199;
+        YearPercent = 200;
     else if (nHeight <= 55000)
         YearPercent = 150;
     else if (nHeight <= 58000)
-        YearPercent = 1555;
+        YearPercent = 1550;
     else if (nHeight <= 65000)
-        YearPercent = 399;
+        YearPercent = 400;
     else if (nHeight <= 80000)
-        YearPercent = 199;
+        YearPercent = 200;
     else if (nHeight <= 100000)
         YearPercent = 100;
     else if (nHeight <= 110000)
-        YearPercent = 499;
+        YearPercent = 500;
     else if (nHeight <= 140000)
-        YearPercent = 199;
+        YearPercent = 200;
     else if (nHeight <= 150000)
-        YearPercent = 99;
+        YearPercent = 100;
  //   else if (nHeight <= 140000)
    //     YearPercent = 75;
     else
-YearPercent = 21;
+        YearPercent = 25;
 
     return YearPercent * CENT; // per year
 }
@@ -447,9 +447,9 @@ bool TestLockPointValidity(const LockPoints* lp);
 
 /**
  * Check if transaction is final per BIP 68 sequence numbers and can be included in a block.
- * Consensus critical. Takes as input a list of heigBTS at which tx's inputs (in order) confirmed.
+ * Consensus critical. Takes as input a list of heights at which tx's inputs (in order) confirmed.
  */
-bool SequenceLocks(const CTransaction &tx, int flags, std::vector<int>* prevHeigBTS, const CBlockIndex& block);
+bool SequenceLocks(const CTransaction &tx, int flags, std::vector<int>* prevHeights, const CBlockIndex& block);
 
 /**
  * Check if transaction will be BIP 68 final in the next block to be created.
@@ -584,7 +584,7 @@ bool InvalidateBlock(CValidationState& state, const CChainParams& chainparams, C
 /** Remove invalidity status from a block and its descendants. */
 bool ResetBlockFailureFlags(CBlockIndex *pindex);
 
-// BTS
+// BKS
 
 inline unsigned int GetTargetSpacing(int nHeight) { return 30; }
 
@@ -674,4 +674,4 @@ void CountVotes(CValidationState& state, CBlockIndex *pindexNew, bool fUndo);
 
 bool IsSigHFEnabled(const Consensus::Params &consensus, const CBlockIndex *pindexPrev);
 
-#endif // BTS_MAIN_H
+#endif // BKS_MAIN_H

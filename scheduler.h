@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_SCHEDULER_H
-#define BTS_SCHEDULER_H
+#ifndef BKS_SCHEDULER_H
+#define BKS_SCHEDULER_H
 
 //
 // NOTE:

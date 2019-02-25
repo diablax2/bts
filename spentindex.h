@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_SPENTINDEX_H
-#define BTS_SPENTINDEX_H
+#ifndef BKS_SPENTINDEX_H
+#define BKS_SPENTINDEX_H
 
 #include "uint256.h"
 #include "amount.h"
@@ -95,4 +95,4 @@ struct CSpentIndexKeyCompare
     }
 };
 
-#endif // BTS_SPENTINDEX_H
+#endif // BKS_SPENTINDEX_H

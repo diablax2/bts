@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2017-2018 The BTS Core developers
+// Copyright (c) 2017-2018 The BKS Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -55,7 +55,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "BTS cannot be compiled without assertions."
+# error "BKS cannot be compiled without assertions."
 #endif
 
 /**
@@ -135,7 +135,7 @@ arith_uint256 bnProofOfStakeLimitV2(~arith_uint256() >> 1);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "BTS Signed Message:\n";
+const string strMessageMagic = "BKS Signed Message:\n";
 
 
 enum FlushStateMode {
@@ -858,12 +858,12 @@ bool CheckFinalTx(const CTransaction &tx, int flags)
 /**
  * Calculates the block height and previous block's median time past at
  * which the transaction will be considered final in the context of BIP 68.
- * Also removes from the vector of input heigBTS any entries which did not
+ * Also removes from the vector of input heights any entries which did not
  * correspond to sequence locked inputs as they do not affect the calculation.
  */
-static std::pair<int, int64_t> CalculateSequenceLocks(const CTransaction &tx, int flags, std::vector<int>* prevHeigBTS, const CBlockIndex& block)
+static std::pair<int, int64_t> CalculateSequenceLocks(const CTransaction &tx, int flags, std::vector<int>* prevHeights, const CBlockIndex& block)
 {
-    assert(prevHeigBTS->size() == tx.vin.size());
+    assert(prevHeights->size() == tx.vin.size());
 
     // Will be set to the equivalent height- and time-based nLockTime
     // values that would be necessary to satisfy all relative lock-
@@ -893,11 +893,11 @@ static std::pair<int, int64_t> CalculateSequenceLocks(const CTransaction &tx, in
         // consensus-enforced meaning at this point.
         if (txin.nSequence & CTxIn::SEQUENCE_LOCKTIME_DISABLE_FLAG) {
             // The height of this input is not relevant for sequence locks
-            (*prevHeigBTS)[txinIndex] = 0;
+            (*prevHeights)[txinIndex] = 0;
             continue;
         }
 
-        int nCoinHeight = (*prevHeigBTS)[txinIndex];
+        int nCoinHeight = (*prevHeights)[txinIndex];
 
         if (txin.nSequence & CTxIn::SEQUENCE_LOCKTIME_TYPE_FLAG) {
             int64_t nCoinTime = block.GetAncestor(std::max(nCoinHeight-1, 0))->GetMedianTimePast();
@@ -933,9 +933,9 @@ static bool EvaluateSequenceLocks(const CBlockIndex& block, std::pair<int, int64
     return true;
 }
 
-bool SequenceLocks(const CTransaction &tx, int flags, std::vector<int>* prevHeigBTS, const CBlockIndex& block)
+bool SequenceLocks(const CTransaction &tx, int flags, std::vector<int>* prevHeights, const CBlockIndex& block)
 {
-    return EvaluateSequenceLocks(block, CalculateSequenceLocks(tx, flags, prevHeigBTS, block));
+    return EvaluateSequenceLocks(block, CalculateSequenceLocks(tx, flags, prevHeights, block));
 }
 
 bool TestLockPointValidity(const LockPoints* lp)
@@ -981,8 +981,8 @@ bool CheckSequenceLocks(const CTransaction &tx, int flags, LockPoints* lp, bool 
     else {
         // pcoinsTip contains the UTXO set for chainActive.Tip()
         CCoinsViewMemPool viewMemPool(pcoinsTip, mempool);
-        std::vector<int> prevheigBTS;
-        prevheigBTS.resize(tx.vin.size());
+        std::vector<int> prevheights;
+        prevheights.resize(tx.vin.size());
         for (size_t txinIndex = 0; txinIndex < tx.vin.size(); txinIndex++) {
             const CTxIn& txin = tx.vin[txinIndex];
             CCoins coins;
@@ -991,12 +991,12 @@ bool CheckSequenceLocks(const CTransaction &tx, int flags, LockPoints* lp, bool 
             }
             if (coins.nHeight == MEMPOOL_HEIGHT) {
                 // Assume all mempool transaction confirm in the next block
-                prevheigBTS[txinIndex] = tip->nHeight + 1;
+                prevheights[txinIndex] = tip->nHeight + 1;
             } else {
-                prevheigBTS[txinIndex] = coins.nHeight;
+                prevheights[txinIndex] = coins.nHeight;
             }
         }
-        lockPair = CalculateSequenceLocks(tx, flags, &prevheigBTS, index);
+        lockPair = CalculateSequenceLocks(tx, flags, &prevheights, index);
         if (lp) {
             lp->height = lockPair.first;
             lp->time = lockPair.second;
@@ -1014,7 +1014,7 @@ bool CheckSequenceLocks(const CTransaction &tx, int flags, LockPoints* lp, bool 
             // lock on a mempool input, so we can use the return value of
             // CheckSequenceLocks to indicate the LockPoints validity
             int maxInputHeight = 0;
-            BOOST_FOREACH(int height, prevheigBTS) {
+            BOOST_FOREACH(int height, prevheights) {
                 // Can ignore mempool inputs since we'll fail if they had non-zero locks
                 if (height != tip->nHeight+1) {
                     maxInputHeight = std::max(maxInputHeight, height);
@@ -2465,7 +2465,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("BTS-scriptch");
+    RenameThread("BKS-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2731,7 +2731,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     CBlockUndo blockundo;
 
     std::vector<uint256> vOrphanErase;
-    std::vector<int> prevheigBTS;
+    std::vector<int> prevheights;
     CAmount nFees = 0;
     int nInputs = 0;
     int64_t nSigOpsCost = 0;
@@ -2797,9 +2797,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             // Check that transaction is BIP68 final
             // BIP68 lock checks (as opposed to nLockTime checks) must
             // be in ConnectBlock because they require the UTXO set
-            prevheigBTS.resize(tx.vin.size());
+            prevheights.resize(tx.vin.size());
             for (size_t j = 0; j < tx.vin.size(); j++) {
-                prevheigBTS[j] = view.AccessCoins(tx.vin[j].prevout.hash)->nHeight;
+                prevheights[j] = view.AccessCoins(tx.vin[j].prevout.hash)->nHeight;
             }
 
             // Which orphan pool entries must we evict?
@@ -2813,7 +2813,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 }
             }
 
-            if (!SequenceLocks(tx, nLockTimeFlags, &prevheigBTS, *pindex)) {
+            if (!SequenceLocks(tx, nLockTimeFlags, &prevheights, *pindex)) {
                 return state.DoS(100, error("%s: contains a non-BIP68-final transaction", __func__),
                                  REJECT_INVALID, "bad-txns-nonfinal");
             }
@@ -3138,7 +3138,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                     continue;
                 if(!(pindex->pprev->nHeight - pblockindex->nHeight > Params().GetConsensus().nCommunityFundMinAge))
                     return state.DoS(100, error("CheckBlock() : payment request not mature enough."));
-                if(block.vtx[0].vout[i].nValue != prequest.nAmount || prequest.fState != CFund::ACCEPTED || proposal.Address != CBTSAddress(address).ToString())
+                if(block.vtx[0].vout[i].nValue != prequest.nAmount || prequest.fState != CFund::ACCEPTED || proposal.Address != CBKSAddress(address).ToString())
                     return state.DoS(100, error("CheckBlock() : coinbase output does not match an accepted payment request"));
                 else {
                     std::vector<std::pair<uint256, CFund::CPaymentRequest> > paymentRequestIndex;
@@ -3404,7 +3404,7 @@ void static UpdateTip(CBlockIndex *pindexNew, const CChainParams& chainParams) {
         int nUpgraded = 0;
         const CBlockIndex* pindex = chainActive.Tip();
 //
-// Commented - BTS uses now version control
+// Commented - BKS uses now version control
 //
 //        for (int bit = 0; bit < VERSIONBITS_NUM_BITS; bit++) {
 //            WarningBitsConditionChecker checker(bit);
@@ -6219,19 +6219,19 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         if(pfrom->nVersion < 70015)
         {
-            reason = "You are using an old version of BTS, please update.";
+            reason = "You are using an old version of BKS, please update.";
             fObsolete = true;
         }
 
         if(pfrom->nVersion < 70017 && IsWitnessEnabled(chainActive.Tip(), Params().GetConsensus()))
         {
-            reason = "Segregated Witness has been enabled and you are using an old version of BTS, please update.";
+            reason = "Segregated Witness has been enabled and you are using an old version of BKS, please update.";
             fObsolete = true;
         }
 
         if(pfrom->nVersion < 70020 && IsCommunityFundEnabled(chainActive.Tip(), Params().GetConsensus()))
         {
-            reason = "Community Fund has been enabled and you are using an old version of BTS, please update.";
+            reason = "Community Fund has been enabled and you are using an old version of BKS, please update.";
             fObsolete = true;
         }
 
@@ -8158,7 +8158,7 @@ bool SendMessages(CNode* pto)
 }
 
  std::string CBlockFileInfo::ToString() const {
-     return strprintf("CBlockFileInfo(blocks=%u, size=%u, heigBTS=%u...%u, time=%s...%s)", nBlocks, nSize, nHeightFirst, nHeightLast, DateTimeStrFormat("%Y-%m-%d", nTimeFirst), DateTimeStrFormat("%Y-%m-%d", nTimeLast));
+     return strprintf("CBlockFileInfo(blocks=%u, size=%u, heights=%u...%u, time=%s...%s)", nBlocks, nSize, nHeightFirst, nHeightLast, DateTimeStrFormat("%Y-%m-%d", nTimeFirst), DateTimeStrFormat("%Y-%m-%d", nTimeLast));
  }
 
 ThresholdState VersionBitsTipState(const Consensus::Params& params, Consensus::DeploymentPos pos)

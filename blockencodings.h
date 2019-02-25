@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_BLOCK_ENCODINGS_H
-#define BTS_BLOCK_ENCODINGS_H
+#ifndef BKS_BLOCK_ENCODINGS_H
+#define BKS_BLOCK_ENCODINGS_H
 
 #include "primitives/block.h"
 

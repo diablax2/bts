@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BTS_UINT256_H
-#define BTS_UINT256_H
+#ifndef BKS_UINT256_H
+#define BKS_UINT256_H
 
 #include <assert.h>
 #include <cstring>
@@ -230,4 +230,4 @@ inline uint512 uint512S(const std::string& str)
     rv.SetHex(str);
     return rv;
 }
-#endif // BTS_UINT256_H
+#endif // BKS_UINT256_H
